@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIHMO — Презентация дизайна интернет-магазина</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #141312;
+      color: #FBFBFA;
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 80px;
+    }
+    
+    header.hero {
+      width: 100%;
+      max-width: 1200px;
+      padding: 64px 24px 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+    }
+    .tagline {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #A09D96;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      max-width: 680px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #C8C5BE;
+      font-weight: 300;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 48px 24px 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .section-subtitle {
+      font-size: 13px;
+      color: #8C8880;
+      margin-bottom: 32px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Grid of Versions */
+    .versions-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .version-card {
+      background: #1C1B19;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .version-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.24);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-preview {
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      background: #0D0C0B;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .card-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .version-card:hover .card-preview img {
+      transform: scale(1.02);
+    }
+    .card-preview-mobile img {
+      width: 70%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      border-radius: 8px 8px 0 0;
+      margin-top: 16px;
+    }
+
+    .card-body {
+      padding: 24px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .card-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #B5B2AA;
+    }
+    .card-res {
+      font-size: 12px;
+      color: #726E67;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #FFFFFF;
+    }
+    .card-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #A09D96;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .card-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: #FFFFFF;
+      color: #141312;
+    }
+    .btn-primary:hover {
+      background: #EDEAE4;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #E2DFD8;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    /* Key highlights section */
+    .specs-box {
+      background: #181715;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .spec-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .spec-item p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #8C8880;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #55524C;
+    }
+
+    @media (max-width: 860px) {
+      .versions-grid {
+        grid-template-columns: 1fr;
+      }
+      header.hero {
+        padding: 40px 20px 32px;
+      }
+      .brand-title {
+        font-size: 36px;
+      }
+      .card-preview {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1 class="brand-title">VIHMO</h1>
+    <div class="tagline">Северное СПА · Премиальные печи · Ритуалы парения</div>
+    <p class="hero-desc">
+      Интерактивная презентация концепции дизайн-макета интернет-магазина.
+      Разработано две версии: полноразмерная компьютерная и адаптивная мобильная с учётом всех требований к типографике, отступам и премиальной эстетике.
+    </p>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Версии макета</h2>
+    <p class="section-subtitle">Выберите версию для интерактивного просмотра или скачайте исходный файл в высоком разрешении.</p>
+
+    <div class="versions-grid">
+      <!-- Desktop Card -->
+      <div class="version-card">
+        <div class="card-preview">
+          <img src="desktop.png" alt="VIHMO Desktop Preview">
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Desktop</span>
+            <span class="card-res">1440 × 6756 px</span>
+          </div>
+          <h3 class="card-title">Компьютерная версия</h3>
+          <p class="card-desc">
+            Широкоформатный макет для мониторов и ноутбуков. Просторная сетка с увеличенными отступами, баннерная архитектура блоков «Печи и пар», «Ритуал», «Банный текстиль», трёхколоночные преимущества и монументальный тёмный футер.
+          </p>
+          <div class="card-actions">
+            <a href="desktop.html" class="btn btn-primary">💻 Открыть макет</a>
+            <a href="desktop.png" target="_blank" download class="btn btn-secondary">⬇ Скачать PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Card -->
+      <div class="version-card">
+        <div class="card-preview card-preview-mobile">
+          <img src="mobile.png" alt="VIHMO Mobile Preview">
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-badge">Mobile</span>
+            <span class="card-res">390 × 6266 pt (Retina 2x)</span>
+          </div>
+          <h3 class="card-title">Мобильная версия</h3>
+          <p class="card-desc">
+            Оптимизирована под смартфоны. Горизонтальные карточки печей с полноразмерными каменками и вырезанным фоном, карточки поверх фото-подложек с отступами от краёв экрана, компактные преимущества и удобная вертикальная навигация.
+          </p>
+          <div class="card-actions">
+            <a href="mobile.html" class="btn btn-primary">📱 Открыть макет</a>
+            <a href="mobile.png" target="_blank" download class="btn btn-secondary">⬇ Скачать PNG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <h2 class="section-title">Особенности дизайна</h2>
+    <p class="section-subtitle">Ключевые визуальные решения, реализованные в проекте</p>
+
+    <div class="specs-box">
+      <div class="spec-item">
+        <h4>Северный минимализм</h4>
+        <p>Благородная цветовая гамма: глубокий тёмный уголь #141312, тёплый оттенок льна #FBFBFA и мягкие серые акценты #7E7873.</p>
+      </div>
+      <div class="spec-item">
+        <h4>Типографика высокой моды</h4>
+        <p>Гармоничное сочетание акцидентной антиквы Playfair Display для заголовков и чистого функционального гротеска Inter для интерфейса.</p>
+      </div>
+      <div class="spec-item">
+        <h4>Многослойные фото-подложки</h4>
+        <p>Карточки товаров и текстовые акценты парят поверх широкоформатных интерьерных фотографий с выверенными отступами от краев.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    VIHMO · Scandinavian Spa &amp; Sauna Identika
+  </footer>
+
+</body>
+</html>

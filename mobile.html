@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIHMO — Мобильная версия (Mobile · 390px)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #141312;
+      color: #FFFFFF;
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: rgba(20, 19, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+    .badge {
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #A09D96;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn {
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-active {
+      background: #FFFFFF;
+      color: #141312;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #E2DFD8;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 24px 0 60px;
+    }
+    .phone-frame {
+      width: 100%;
+      max-width: 390px;
+      background: #FBFBFA;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .mockup-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .top-nav { padding: 10px 14px; }
+      .wrapper { padding: 0; }
+      .phone-frame {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <a href="index.html" class="brand">VIHMO</a>
+    <span class="badge">Мобильная версия · 390 px</span>
+    <nav class="nav-links">
+      <a href="desktop.html" class="btn btn-secondary">💻 Компьютерная</a>
+      <a href="mobile.html" class="btn btn-active">📱 Мобильная</a>
+      <a href="mobile.png" target="_blank" download class="btn btn-secondary">⬇ Оригинал</a>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <main class="phone-frame">
+      <img src="mobile.png" alt="VIHMO — Мобильная версия сайта" class="mockup-img" width="390">
+    </main>
+  </div>
+</body>
+</html>
